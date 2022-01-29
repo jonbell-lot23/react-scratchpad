@@ -35,7 +35,6 @@ export default function Home() {
 
       <style jsx>{`
         .container {
-          min-height: 100vh;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
@@ -45,13 +44,9 @@ export default function Home() {
         }
 
         main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          padding: 1rem 0;
           align-items: center;
-          font-size: 16rem;
+          font-size: 4rem;
           color: brown;
         }
 
