@@ -7,9 +7,18 @@ const { DateTime, Interval } = require("luxon");
 function daysUntil(deadline) {
   let now = DateTime.now();
   let deadlineReturn = DateTime.fromISO(deadline);
-  let i = Interval.fromDateTimes(DateTime.local(), DateTime.fromISO(deadline));
-  let daysUntil = parseInt(i.length("days"));
-  return daysUntil;
+  let i = 0;
+
+  if (deadlineReturn > now) {
+    i = Interval.fromDateTimes(DateTime.local(), DateTime.fromISO(deadline));
+    let daysUntil = parseInt(i.length("days"));
+    return daysUntil;
+  } else {
+    i = Interval.fromDateTimes(DateTime.fromISO(deadline), DateTime.local());
+    let daysUntil = parseInt(i.length("days"));
+    let daysPast = Math.abs(daysUntil) * -1;
+    return daysPast;
+  }
 }
 
 export default function Home() {
@@ -40,9 +49,16 @@ export default function Home() {
           <footer>
             {deadlinesArray.map((deadline, i) => {
               let daysUntilDeadline = daysUntil(deadline.due);
-              if (daysUntilDeadline < 10) {
-                let color = "bg-red-200";
+              let color = "bg-white";
+
+              if (daysUntilDeadline > 60) {
+                color = "bg-green-500";
+              } else if (daysUntilDeadline < 10) {
+                color = "bg-orange-200";
+              } else if (parseInt(daysUntilDeadline) < 0) {
+                color = "bg-red-400";
               }
+
               return (
                 <span
                   className={`${color} float-left p-2 m-1 bg-white shadow-sm rounded-md hover:bg-sky-100`}
