@@ -7,6 +7,7 @@ import Link from "next/link";
 import Discipline from "../components/discipline";
 import Litclock from "../components/litclock";
 import Pinboard from "../components/pinboard";
+import DaysUntil from "../components/daysuntil";
 
 import Masonry from "react-masonry-css";
 
@@ -40,6 +41,7 @@ export default function Home() {
           <Discipline />
         </div>
         <Litclock />
+        <DaysUntil />
         <Pinboard />
       </main>
 

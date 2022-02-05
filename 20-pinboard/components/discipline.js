@@ -1,18 +1,31 @@
 import Head from "next/head";
+const { DateTime, Interval } = require("luxon");
 
 function days_passed() {
-  let then = new Date(2022, 0, 23), // I started on January 23rd (but timezones)
-    now = new Date();
-  now.setHours(0, 0, 0, 0);
+  // let then = DateTime.local(2022, 1, 23, 0, 0, 0, 0);
 
-  console.log(now);
-  console.log(then);
-  console.log(Math.round((now - then) / (1000 * 60 * 60 * 24)));
-  return Math.round((now - then) / (1000 * 60 * 60 * 24)); // round the amount of days
+  let then = DateTime.fromObject(
+    { year: 2022, month: 1, day: 23 },
+    { zone: "NZ", numberingSystem: "beng" }
+  );
+
+  let now = DateTime.now();
+
+  let i = Interval.fromDateTimes(then, now);
+  let daysPassed = parseInt(i.length("days"));
+  console.log("daysPassed " + daysPassed);
+  return daysPassed;
 }
 
+// epoch 1642849200
+
 export default function Home() {
-  let disciplineArray = ["◎", "❖", "❖", "✽", "✽", "✿", "❥", "⌘", "✽", "❥"];
+  // timezone work
+  // bogus = DateTime.local().setZone("NZ");
+  // console.log(bogus);
+
+  // let disciplineArray = ["◎", "❖", "❖", "✽", "✽", "✿", "❥", "⌘", "✽", "❥"]; // week one
+  let disciplineArray = ["◎", "✽", "❥", "❖", "✿", "✽", "❥", "⌘", "❖", "✿"]; // week two
   let daysPassed = days_passed();
 
   // figure out which thing to load
@@ -21,14 +34,15 @@ export default function Home() {
 
   // now show it
   let disciplineToday = disciplineArray[remainder];
-  console.log(quotient);
-  console.log(remainder);
-  console.log(disciplineToday);
+
+  console.log("quotient: " + quotient);
+  console.log("remainder: " + remainder);
+  console.log("disciplineToday: " + disciplineToday);
 
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>The Discipline!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>{disciplineToday}</main>
