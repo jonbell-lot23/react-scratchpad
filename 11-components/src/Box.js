@@ -19,22 +19,10 @@ function Box(props) {
   if (props.id % props.selected == 0) {
     color = redColor;
   } else {
-    color = "#efefef";
+    color = "brown";
   }
-
-  function changeBackgroundColor(e) {
-    e.target.style.background = blueColor;
-  }
-
-  const freakOut = (e) => {
-    // console.log(props.id);
-    props.onPeerSearch(props.id);
-  };
 
   const findPeer = (e) => {
-    // find my id
-    // add one to it
-    // change that
     props.onPeerSearch(props.id);
   };
 
