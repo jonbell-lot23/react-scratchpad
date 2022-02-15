@@ -8,6 +8,7 @@ import Discipline from "../components/discipline";
 import Litclock from "../components/litclock";
 import Pinboard from "../components/pinboard";
 import DaysUntil from "../components/daysuntil";
+import Box from "../components/box";
 
 import Masonry from "react-masonry-css";
 
@@ -29,6 +30,13 @@ export default function Home() {
     getApiData();
   }, []);
 
+  const [highlighted, setHighlighted] = React.useState();
+
+  const bigarray = [];
+  for (let step = 1; step < 100; step++) {
+    bigarray.push({ step });
+  }
+
   return (
     <div className="container">
       <Head>
@@ -40,6 +48,17 @@ export default function Home() {
         <div className="h-32 h-1/3 m-4">
           <Discipline />
         </div>
+
+        <header className="App-header p-8">
+          {bigarray.map((i) => (
+            <Box
+              id={i.step}
+              highlight={setHighlighted}
+              highlighted={highlighted}
+            />
+          ))}
+        </header>
+
         <Litclock />
         <DaysUntil />
         <Pinboard />
