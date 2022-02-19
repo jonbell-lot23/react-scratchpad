@@ -25,12 +25,14 @@ function Box(props) {
   };
 
   return (
-    <div
-      class="p-2 text-white rounded-xl mb-1 w-4 h-4 mr-1 float-left cursor-pointer"
-      style={{ backgroundColor: color }}
-      onMouseOver={highlight}
-      onMouseOut={removeHighlight}
-    ></div>
+    <>
+      <div
+        class="p-2 text-white rounded-xl mb-1 w-4 h-4 mr-1 float-left cursor-pointer"
+        style={{ backgroundColor: color }}
+        onMouseOver={highlight}
+        onMouseOut={removeHighlight}
+      ></div>
+    </>
   );
 }
 
