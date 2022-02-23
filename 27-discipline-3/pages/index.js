@@ -25,7 +25,8 @@ export default function Home() {
   // console.log(bogus);
 
   // let disciplineArray = ["◎", "❖", "❖", "✽", "✽", "✿", "❥", "⌘", "✽", "❥"]; // week one
-  let disciplineArray = ["◎", "✽", "❥", "❖", "✿", "✽", "❥", "⌘", "❖", "✿"]; // week two
+  // let disciplineArray = ["◎", "✽", "❥", "❖", "✿", "✽", "❥", "⌘", "❖", "✿"]; // week two
+  let disciplineArray = ["◎", "❥", "❥", "✿", "✿", "❖", "❖", "⌘", "✽", "✽"]; // week four or five
   let daysPassed = days_passed();
 
   // figure out which thing to load
@@ -53,11 +54,8 @@ export default function Home() {
           console.log("remainder is " + remainder);
           return (
             <>
-              {i === remainder ? (
-                <span className="day today">
-                  {i}
-                  {remainder}
-                </span>
+              {discipline === disciplineToday && i === remainder ? (
+                <span className="day today">{discipline}</span>
               ) : (
                 <span className="day">{discipline}</span>
               )}

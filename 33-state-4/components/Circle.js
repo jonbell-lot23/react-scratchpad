@@ -20,8 +20,8 @@ export function OuterCircle(props) {
 
   return (
     <div
-      className={`absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center left-${props.margin} top-${props.margin} cursor-pointer`}
-      style={{ backgroundColor: "purple", opacity: ".4" }}
+      className={`float-left absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center top-${props.margin} left-${props.margin} cursor-pointer`}
+      style={{ backgroundColor: "purple" }}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
       onClick={onClick}
@@ -48,7 +48,7 @@ export function MiddleCircle(props) {
 
   return (
     <div
-      className={`absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center left-${props.margin} top-${props.margin} cursor-pointer`}
+      className={`float-left absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center top-${props.margin} left-${props.margin} cursor-pointer`}
       style={{ backgroundColor: "orange" }}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
@@ -76,7 +76,7 @@ export function InnerCircle(props) {
 
   return (
     <div
-      className={`absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center left-${props.margin} top-${props.margin} cursor-pointer`}
+      className={`float-left absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center top-${props.margin} left-${props.margin} cursor-pointer`}
       style={{ backgroundColor: "red" }}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
@@ -84,3 +84,11 @@ export function InnerCircle(props) {
     />
   );
 }
+
+/*
+<div class="relative">
+  <div class="float-left absolute rounded-full w-12 h-12 flex flex-col align-items justify-center left-0 top-0 cursor-pointer" style="background-color:purple"></div>
+  <div class="float-left absolute rounded-full w-8 h-8 flex flex-col align-items justify-center left-2 top-2 cursor-pointer" style="background-color:orange"></div>
+  <div class="float-left absolute rounded-full w-4 h-4 flex flex-col align-items justify-center left-4 top-4 cursor-pointer" style="background-color:red"></div>
+</div>
+*/

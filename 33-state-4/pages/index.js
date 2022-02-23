@@ -8,7 +8,7 @@ import {
 import styles from "../styles/Home.module.css";
 
 const bigarray = [];
-for (let step = 1; step < 2; step++) {
+for (let step = 1; step < 1000; step++) {
   bigarray.push({ step });
 }
 
@@ -20,11 +20,13 @@ export default function Home() {
       </Head>
 
       {bigarray.map((i) => (
-        <div className="relative">
-          <OuterCircle size="12" margin="0" />
-          <MiddleCircle size="8" margin="2" />
-          <InnerCircle size="4" margin="4" />
-        </div>
+        <>
+          <div className="relative mr-10 inline">
+            <OuterCircle size="12" margin="0" />
+            <MiddleCircle size="8" margin="2" />
+            <InnerCircle size="4" margin="4" />
+          </div>
+        </>
       ))}
     </div>
   );
