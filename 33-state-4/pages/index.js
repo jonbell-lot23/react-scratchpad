@@ -1,10 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
-import Circle from "../components/Circle.js";
+import {
+  OuterCircle,
+  MiddleCircle,
+  InnerCircle,
+} from "../components/Circle.js";
 import styles from "../styles/Home.module.css";
 
 const bigarray = [];
-for (let step = 1; step < 200; step++) {
+for (let step = 1; step < 2; step++) {
   bigarray.push({ step });
 }
 
@@ -13,11 +17,14 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Circle Town</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {bigarray.map((i) => (
-        <Circle />
+        <div className="relative">
+          <OuterCircle size="12" margin="0" />
+          <MiddleCircle size="8" margin="2" />
+          <InnerCircle size="4" margin="4" />
+        </div>
       ))}
     </div>
   );

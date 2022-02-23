@@ -1,13 +1,12 @@
 import React from "react";
 import randomColor from "randomcolor";
 
-function Circle(props) {
-  const [color, setColor] = React.useState("black");
+export function OuterCircle(props) {
+  const [color, setColor] = React.useState("#ececec");
 
   const onMouseOver = (e) => {
     console.log("onMouseOver");
-    // props.highlight(props.id);
-    console.log(props);
+    setColor("#0BB5FF");
   };
 
   const onMouseOut = (e) => {
@@ -16,26 +15,72 @@ function Circle(props) {
 
   const onClick = (e) => {
     console.log("onClick");
-    setColor("blue");
+    setColor("#8B0000");
   };
 
   return (
     <div
-      className="rounded-full rounded-full w-12 h-12 flex flex-col align-items justify-center float-left m-1"
-      style={{ backgroundColor: color }}
+      className={`absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center left-${props.margin} top-${props.margin} cursor-pointer`}
+      style={{ backgroundColor: "purple", opacity: ".4" }}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
       onClick={onClick}
-    ></div>
+    />
   );
 }
 
-export default Circle;
+export function MiddleCircle(props) {
+  const [color, setColor] = React.useState("#ececec");
 
-/*
-<div class="bg-red-200 rounded-full w-12 h-12 flex flex-col align-items justify-center">
-	<div class="bg-blue-500 rounded-full w-8 h-8 flex flex-col align-items justify-center ml-2">
-	  <div class="bg-white rounded-full w-4 h-4 flex flex-col align-items justify-center ml-2"></div>
-	</div>
-  </div>
-  */
+  const onMouseOver = (e) => {
+    console.log("onMouseOver");
+    setColor("#0BB5FF");
+  };
+
+  const onMouseOut = (e) => {
+    console.log("onMouseOut");
+  };
+
+  const onClick = (e) => {
+    console.log("onClick");
+    setColor("#8B0000");
+  };
+
+  return (
+    <div
+      className={`absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center left-${props.margin} top-${props.margin} cursor-pointer`}
+      style={{ backgroundColor: "orange" }}
+      onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
+      onClick={onClick}
+    />
+  );
+}
+
+export function InnerCircle(props) {
+  const [color, setColor] = React.useState("#ececec");
+
+  const onMouseOver = (e) => {
+    console.log("onMouseOver");
+    setColor("#0BB5FF");
+  };
+
+  const onMouseOut = (e) => {
+    console.log("onMouseOut");
+  };
+
+  const onClick = (e) => {
+    console.log("onClick");
+    setColor("#8B0000");
+  };
+
+  return (
+    <div
+      className={`absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center left-${props.margin} top-${props.margin} cursor-pointer`}
+      style={{ backgroundColor: "red" }}
+      onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
+      onClick={onClick}
+    />
+  );
+}

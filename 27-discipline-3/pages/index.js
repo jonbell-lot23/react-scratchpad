@@ -35,6 +35,7 @@ export default function Home() {
   // now show it
   let disciplineToday = disciplineArray[remainder];
 
+  // this is all correct and works fine
   console.log("quotient: " + quotient);
   console.log("remainder: " + remainder);
   console.log("disciplineToday: " + disciplineToday);
@@ -48,12 +49,15 @@ export default function Home() {
       <main>{disciplineToday}</main>
       <footer>
         {disciplineArray.map((discipline, i) => {
-          console.log(i);
-          console.log(remainder);
+          console.log("i is " + i);
+          console.log("remainder is " + remainder);
           return (
             <>
               {i === remainder ? (
-                <span className="day today">{discipline}</span>
+                <span className="day today">
+                  {i}
+                  {remainder}
+                </span>
               ) : (
                 <span className="day">{discipline}</span>
               )}
