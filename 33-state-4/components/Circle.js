@@ -2,7 +2,7 @@ import React from "react";
 import randomColor from "randomcolor";
 
 export function OuterCircle(props) {
-  const [color, setColor] = React.useState("#ececec");
+  const [color, setColor] = React.useState("purple");
 
   const onMouseOver = (e) => {
     console.log("onMouseOver");
@@ -21,7 +21,7 @@ export function OuterCircle(props) {
   return (
     <div
       className={`float-left absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center top-${props.margin} left-${props.margin} cursor-pointer`}
-      style={{ backgroundColor: "purple" }}
+      style={{ backgroundColor: color }}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
       onClick={onClick}
@@ -30,7 +30,7 @@ export function OuterCircle(props) {
 }
 
 export function MiddleCircle(props) {
-  const [color, setColor] = React.useState("#ececec");
+  const [color, setColor] = React.useState("orange");
 
   const onMouseOver = (e) => {
     console.log("onMouseOver");
@@ -49,7 +49,7 @@ export function MiddleCircle(props) {
   return (
     <div
       className={`float-left absolute rounded-full w-${props.size} h-${props.size} flex flex-col align-items justify-center top-${props.margin} left-${props.margin} cursor-pointer`}
-      style={{ backgroundColor: "orange" }}
+      style={{ backgroundColor: color }}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
       onClick={onClick}
