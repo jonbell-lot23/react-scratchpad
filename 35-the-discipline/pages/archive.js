@@ -2,76 +2,39 @@ import Head from "next/head";
 const { DateTime, Interval } = require("luxon");
 
 function days_passed() {
-  // let then = DateTime.local(2022, 1, 23, 0, 0, 0, 0);
-
   let then = DateTime.fromObject(
     { year: 2022, month: 1, day: 23 },
     { zone: "NZ", numberingSystem: "beng" }
   );
-
   let now = DateTime.now();
-
-  let i = Interval.fromDateTimes(then, now);
-  let daysPassed = parseInt(i.length("days"));
-  console.log("daysPassed " + daysPassed);
+  let interval = Interval.fromDateTimes(then, now);
+  let daysPassed = parseInt(interval.length("days"));
+  console.log("daysPassed is " + daysPassed);
   return daysPassed;
 }
 
-// epoch 1642849200
-
 export default function Home() {
-  // timezone work
-  // bogus = DateTime.local().setZone("NZ");
-  // console.log(bogus);
-
-  // let disciplineArray = ["◎", "❖", "❖", "✽", "✽", "✿", "❥", "⌘", "✽", "❥"]; // week one
-  let disciplineArray = ["◎", "✽", "❥", "❖", "✿", "✽", "❥", "⌘", "❖", "✿"]; // week two
-  // let disciplineArray = ["◎", "❥", "❥", "✿", "✿", "❖", "❖", "⌘", "✽", "✽"]; // week four or five
+  let disciplineArray = ["◎", "✽", "❥", "❖", "✿", "✽", "❥", "⌘", "❖", "✿"];
   let daysPassed = days_passed();
 
-  // figure out which thing to load
   var quotient = Math.floor(daysPassed / disciplineArray.length);
-  var remainder = daysPassed % disciplineArray.length;
-
-  // now show it
-  let disciplineToday = disciplineArray[remainder];
-
-  // this is all correct and works fine
-  console.log("quotient: " + quotient);
-  console.log("remainder: " + remainder);
-  console.log("disciplineToday: " + disciplineToday);
+  var remainder = daysPassed % disciplineArray.length; // this lets us pick the right item
 
   return (
     <div className="container">
       <Head>
         <title>The Discipline!</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>{disciplineToday}</main>
       <footer>
         {disciplineArray.map((discipline, i) => {
-          let classNames = "day";
-          console.log("i is " + i);
+          let classNames = "day"; // init
           i == remainder ? (classNames = "day today") : (classNames = "day");
-          console.log(classNames + discipline);
 
           return (
             <span key={i} className={classNames}>
               {discipline}
             </span>
           );
-
-          /*
-          console.log("remainder is " + remainder);
-          return i === remainder ? (
-            <span key={`active-${i}`} className="day today">
-              {discipline}
-            </span>
-          ) : (
-            <span key={i} className="day">
-              {discipline}
-            </span>
-          );*/
         })}
       </footer>
       <style jsx>{`
