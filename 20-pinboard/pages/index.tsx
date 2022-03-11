@@ -50,7 +50,7 @@ export default function Home() {
         </div>
 
         <header className="App-header p-8">
-          <p>{highlighted ? highlighted : "---"}</p>
+          <p>{highlighted ? highlighted : "..."}</p>
 
           {bigarray.map((i) => (
             <Box

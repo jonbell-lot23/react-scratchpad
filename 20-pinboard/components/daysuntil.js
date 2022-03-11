@@ -26,10 +26,12 @@ export default function Home() {
     {
       title: "NFFN 9",
       due: "2022-02-15",
+      notes: "Shipped and awesome!",
     },
     {
-      title: "Plebe 11",
+      title: "Plebe 11: The Girls Story",
       due: "2022-04-01",
+      notes: "2/10 chapters edited and narrated.",
     },
     {
       title: "NFFN 15",
@@ -61,11 +63,11 @@ export default function Home() {
 
               return (
                 <span
-                  className={`${color} float-left p-2 m-1 bg-white shadow-sm rounded-md hover:bg-sky-100`}
+                  className={`${color} float-left p-5 m-1 bg-white shadow-sm rounded-md hover:bg-sky-100`}
                 >
-                  <b>{deadline.title}</b>
-                  <br />
-                  {daysUntilDeadline} days away
+                  <h2>{deadline.title}</h2>
+                  <div className="italic">{daysUntilDeadline} days away</div>
+                  <div className="mt-3">{deadline.notes}</div>
                 </span>
               );
             })}

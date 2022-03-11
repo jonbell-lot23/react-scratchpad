@@ -17,15 +17,10 @@ function days_passed() {
   return daysPassed;
 }
 
-// epoch 1642849200
-
 export default function Home() {
-  // timezone work
-  // bogus = DateTime.local().setZone("NZ");
-  // console.log(bogus);
-
   // let disciplineArray = ["◎", "❖", "❖", "✽", "✽", "✿", "❥", "⌘", "✽", "❥"]; // week one
-  let disciplineArray = ["◎", "✽", "❥", "❖", "✿", "✽", "❥", "⌘", "❖", "✿"]; // week two
+  // let disciplineArray = ["◎", "✽", "❥", "❖", "✿", "✽", "❥", "⌘", "❖", "✿"]; // week two
+  let disciplineArray = ["◎", "❥", "❥", "✿", "✿", "❖", "❖", "⌘", "✽", "✽"]; // week four or five
   let daysPassed = days_passed();
 
   // figure out which thing to load
