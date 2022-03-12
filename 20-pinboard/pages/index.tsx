@@ -9,6 +9,8 @@ import Litclock from "../components/litclock";
 import Pinboard from "../components/pinboard";
 import DaysUntil from "../components/daysuntil";
 import Box from "../components/box";
+import RandomImage from "../components/RandomImage";
+import ImageClock from "../components/ImageClock";
 
 import Masonry from "react-masonry-css";
 
@@ -33,7 +35,7 @@ export default function Home() {
   const [highlighted, setHighlighted] = React.useState();
 
   const bigarray = [];
-  for (let step = 1; step < 100; step++) {
+  for (let step = 1; step < 3; step++) {
     bigarray.push({ step });
   }
 
@@ -45,9 +47,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className="h-32 h-1/3 m-4">
-          <Discipline />
-        </div>
+        <ImageClock />
+
+        <Discipline />
 
         <header className="App-header p-8">
           <p>{highlighted ? highlighted : "..."}</p>
@@ -61,9 +63,7 @@ export default function Home() {
           ))}
         </header>
 
-        <Litclock />
         <DaysUntil />
-        <Pinboard />
       </main>
 
       <style jsx>{`
@@ -171,7 +171,14 @@ export default function Home() {
           margin: 0;
           font-family: BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
             Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-          background-color: beige;
+          background-color: beige;          
+          background: url('https://source.unsplash.com/random/1000×1000') no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          }
+          
         }
 
         * {

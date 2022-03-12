@@ -49,14 +49,13 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          background-color: beige;
         }
 
         main {
           padding: 1rem 0;
           align-items: center;
           font-size: 4rem;
-          color: brown;
+          color: #fff;
         }
 
         footer {
