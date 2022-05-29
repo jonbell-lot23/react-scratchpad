@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/6-songlist/static/css/main.1cb0d651.css",
+    "main.js": "/6-songlist/static/js/main.4c34082a.js",
+    "index.html": "/6-songlist/index.html",
+    "main.1cb0d651.css.map": "/6-songlist/static/css/main.1cb0d651.css.map",
+    "main.4c34082a.js.map": "/6-songlist/static/js/main.4c34082a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1cb0d651.css",
+    "static/js/main.4c34082a.js"
+  ]
+}
