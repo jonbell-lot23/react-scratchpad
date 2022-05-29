@@ -20,7 +20,9 @@ export default function Home() {
 
   // let disciplineArray = ["◎", "❖", "❖", "✽", "✽", "✿", "❥", "⌘", "✽", "❥"]; // week one
   // let disciplineArray = ["◎", "✽", "❥", "❖", "✿", "✽", "❥", "⌘", "❖", "✿"]; // week two
-  let disciplineArray = ["◎", "❥", "❥", "✿", "✿", "❖", "❖", "⌘", "✽", "✽"]; // week four or five
+  // let disciplineArray = ["◎", "❥", "❥", "✿", "✿", "❖", "❖", "⌘", "✽", "✽"]; // week four or five
+  let disciplineArray = ["◎", "✿", "❥", "✿", "❥", "✿", "❥", "✿", "❖", "✽"]; // week four or five
+
   let daysPassed = daysSince;
   // figure out which thing to load
   var quotient = Math.floor(daysPassed / disciplineArray.length);
